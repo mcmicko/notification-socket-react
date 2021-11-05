@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import { posts } from "./data";
 
 import Card from "./components/card/Card";
 import Navbar from "./components/navbar/Navbar";
@@ -14,7 +15,10 @@ const App = () => {
       {user ? (
         <>
           <Navbar />
-          <Card />
+          {posts.map((post) => (
+            <Card key={post.id} post={post} />
+          ))}
+
           <span className="username">{user}</span>
         </>
       ) : (
