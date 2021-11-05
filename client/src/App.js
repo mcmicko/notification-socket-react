@@ -1,7 +1,33 @@
+import { useState } from "react";
 import "./App.css";
 
-function App() {
-  return <div className="App">hello world</div>;
-}
+import Card from "./components/card/Card";
+import Navbar from "./components/navbar/Navbar";
+
+const App = () => {
+  const [username, setUsername] = useState("");
+  const [user, setUser] = useState("");
+
+  console.log(user);
+  return (
+    <div className="container">
+      {user ? (
+        <>
+          <Navbar />
+          <Card />
+        </>
+      ) : (
+        <div className="login">
+          <input
+            type="text"
+            placeholder="username"
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <button onClick={(e) => setUser(username)}>login</button>
+        </div>
+      )}
+    </div>
+  );
+};
 
 export default App;
