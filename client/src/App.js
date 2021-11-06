@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import { posts } from "./data";
+import { io } from "socket.io-client";
 
 import Card from "./components/card/Card";
 import Navbar from "./components/navbar/Navbar";
@@ -8,6 +9,10 @@ import Navbar from "./components/navbar/Navbar";
 const App = () => {
   const [username, setUsername] = useState("");
   const [user, setUser] = useState("");
+
+  useEffect(() => {
+    const socket = io("http://localhost:5000");
+  }, []);
 
   console.log(user);
   return (
