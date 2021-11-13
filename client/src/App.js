@@ -27,7 +27,6 @@ const App = () => {
           {posts.map((post) => (
             <Card key={post.id} post={post} socket={socket} user={user} />
           ))}
-
           <span className="username">{user}</span>
         </>
       ) : (
@@ -37,7 +36,7 @@ const App = () => {
             placeholder="username"
             onChange={(e) => setUsername(e.target.value)}
           />
-          <button onClick={(e) => setUser(username)}>login</button>
+          <button onClick={() => setUser(username)}>login</button>
         </div>
       )}
     </div>
